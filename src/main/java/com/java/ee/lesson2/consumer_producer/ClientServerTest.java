@@ -1,0 +1,11 @@
+package com.java.ee.lesson2.consumer_producer;
+
+public class ClientServerTest {
+    public static void main(String[] args) {
+        Bucket bucket = new Bucket();
+        Client client = new Client(bucket);
+        Server server = new Server(bucket);
+        client.start();
+        server.start();
+    }
+}
