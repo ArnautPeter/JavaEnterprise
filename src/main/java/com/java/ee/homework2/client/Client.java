@@ -12,23 +12,21 @@ public class Client {
 
         Socket clientSocket = new Socket("localhost", 9999);
 
-        Scanner scanner = new Scanner(System.in);
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                        clientSocket.getInputStream()));
 
-        PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream());
-        String msgFromServer;
-        while (!"stop".equals(msgFromServer = reader.readLine())) {
-            System.out.println("msg from server = " + msgFromServer);
-            String serverMsg = scanner.nextLine();
-            printWriter.println(serverMsg);
-            printWriter.flush();
+        try (Scanner scanner = new Scanner(System.in);
+             BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(clientSocket.getInputStream()));
+             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream())) {
+
+            String msgFromServer;
+            while (!"stop".equals(msgFromServer = reader.readLine())) {
+                System.out.println("msg from server = " + msgFromServer);
+                String serverMsg = scanner.nextLine();
+                printWriter.println(serverMsg);
+                printWriter.flush();
+            }
+            System.out.println("server disconnected");
         }
-        System.out.println("server disconnected");
-        scanner.close();
-        reader.close();
-        printWriter.close();
     }
 
 

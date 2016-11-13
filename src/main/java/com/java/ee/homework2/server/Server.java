@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Server {
 
@@ -20,23 +19,19 @@ public class Server {
         }
     }
 
-    public static class ServerCustomSocket implements Runnable {
+    private static class ServerCustomSocket implements Runnable {
 
         private Socket clientSocket;
 
-        public ServerCustomSocket(Socket clientSocket) {
+        private ServerCustomSocket(Socket clientSocket) {
             this.clientSocket = clientSocket;
         }
 
         public void run() {
 
-            try {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                 PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream())) {
 
-                Scanner scanner = new Scanner(System.in);
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(clientSocket.getInputStream()));
-
-                PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream());
                 printWriter.println("hello from server");
                 printWriter.flush();
                 String msgFromClient;
