@@ -59,19 +59,19 @@ public class UserSystemManager {
         Object o = theUnsafe.get(null);
         if (o instanceof Unsafe) {
             Unsafe unsafe = (Unsafe) o;
-           // unsafe.throwException(new IOException("!!!!!!!!!!!!!!!!"));
+            // unsafe.throwException(new IOException("!!!!!!!!!!!!!!!!"));
 
             Method[] methods = userClass.getMethods();
             for (Method method : methods) {
                 Annotation[] annotations = method.getAnnotations();
                 for (Annotation an : annotations) {
                     UserAnnotation annotation = method.getAnnotation(UserAnnotation.class);
-                    if(annotation == null) {
+                    if (annotation == null) {
                         System.out.println(annotation.getClass());
                     }
                     System.out.println(an.annotationType().getName());
                 }
-             }
+            }
         }
     }
 
