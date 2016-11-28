@@ -10,7 +10,9 @@ public class UserServiceImpl implements UserService {
 
     private UserRepo userRepo = new UserRepoImpl();
 
-
+    public UserServiceImpl(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @Override
     public List<User> getAllUsers() {

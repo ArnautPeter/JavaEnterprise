@@ -1,9 +1,7 @@
-package com.java.ee.lesson6.ioc_di.manager;
+package com.java.ee.lesson6.ioc_di2.manager;
 
-import com.java.ee.lesson6.ioc_di.User;
-import com.java.ee.lesson6.ioc_di.repo.UserRepo;
-import com.java.ee.lesson6.ioc_di.service.UserService;
-import com.java.ee.lesson6.ioc_di.service.UserServiceImpl;
+import com.java.ee.lesson6.ioc_di2.User;
+import com.java.ee.lesson6.ioc_di2.service.UserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -17,7 +15,7 @@ public class UserManager {
 //            System.out.println(user);
 //        }
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-annotation-context.xml");
         UserService userService = context.getBean("userService", UserService.class);
         // UserRepo userRepo = context.getBean("userRepo", UserRepo.class);
 
