@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="userService" class="com.java.ee.lesson6.ioc_di.service.UserServiceImpl">
+        <constructor-arg index="0" ref="userRepo"/>
+        <!--<property name="userRepo2" ref="userRepo2"/>-->
+        <!--</bean>-->
+    </bean>
+
+    <bean name="userRepo" class="com.java.ee.lesson6.ioc_di.repo.UserRepoImpl"/>
+    <!--  <bean name="userRepo2" class="com.java.ee.lesson6.ioc_di.repo.UserRepoImpl2"/>-->
+    <!-- <bean name="userService" autowire="byName" class="com.java.ee.lesson6.ioc_di.service.UserServiceImpl"/>-->
+
+</beans>
