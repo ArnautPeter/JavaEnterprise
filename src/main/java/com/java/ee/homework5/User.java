@@ -1,16 +1,14 @@
 package com.java.ee.homework5;
 
+@UserRoleAnnotation
 public class User {
     private String name;
-    private String surname;
     private int age;
-    private String role;
 
-    public User(String name, String surname, int age, String role) {
+
+    public User(String name, int age) {
         this.name = name;
-        this.surname = surname;
         this.age = age;
-        this.role = role;
     }
 
     public String getName() {
@@ -21,13 +19,6 @@ public class User {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     public int getAge() {
         return age;
@@ -37,11 +28,11 @@ public class User {
         this.age = age;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

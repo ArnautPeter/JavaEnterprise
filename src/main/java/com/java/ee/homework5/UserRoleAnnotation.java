@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Retention(value = RetentionPolicy.RUNTIME)
 public @interface UserRoleAnnotation {
 
-    public String role() default "USER";
+    Role value() default Role.USER;
 }
