@@ -18,7 +18,8 @@ public class JdbcTest {
         //jdbcTest.createTable(connection);
         //jdbcTest.dropTable(connection);
         //jdbcTest.insertRecords(connection);
-        jdbcTest.savePointExample(connection);
+        //jdbcTest.savePointExample(connection);
+
 
     }
 
